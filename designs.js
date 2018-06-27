@@ -1,50 +1,50 @@
-// $(function() {
-// Select color input
-// Select size input
+$(function() {
+    // Select color input
+    // Select size input
+    // When size is submitted by the user, call makeGrid()
 
-// When size is submitted by the user, call makeGrid()
+    function makeGrid() {
+        // Your code goes here!
+        // GET TABLE ELEMENT AND STORE AS VARIABLE
+        var table = document.getElementById('pixelCanvas');
+        $('form').on('submit', function() {
+            event.preventDefault();
 
-function makeGrid() {
-    // Your code goes here!
-    // get the table element already from index
-    var table = document.getElementById('pixelCanvas');
-    $('form').on('submit', function() {
-        event.preventDefault();
+            // SELECT COLOUR INPUT
+            var selectColor = $('#colorPicker').val();
 
-        // Select color input
-        var selectColor = $('#colorPicker').val();
+            // SELECT SIZE INPUT
+            var gridHeight = $('#inputHeight').val();
+            var gridWidth = $('#inputWeight').val();
 
-        // Select size input
-        var gridHeight = $('#inputHeight').val();
-        var gridWidth = $('#inputWeight').val();
+            // CREATE TABLE BODY
+            var tableBody = document.createElement('TBODY');
 
-        // Create table body
-        var tableBody = document.createElement('TBODY');
+            // APPEND TABLE BODY TO TABLE ELEMENT
+            table.appendChild(tableBody);
 
-        //append table body to the table element created
-        table.appendChild(tableBody);
+            // FOR LOOP TO CREATE CELLS FROM inputHeight and inputWeight
+            for (var row = 0; row < gridHeight; row++) {
 
-        // for loop to create cells from the given input
-        for (var row = 0; row < gridHeight; row++) {
-            // create rows
-            var tableRow = document.createElement('TR');
-            // APPEND ROWS TO BODY
-            tableBody.appendChild(tableRow);
+                // CREATE TABLE ROWS
+                var tableRow = document.createElement('TR');
 
-            // CREATE TABLE DATA
-            for (var col = 0; col < gridWidth; col++) {
-                var tableData = document.createElement('TD');
-                // APPEND TEBLE DATA TO TABLE ROW
-                tableRow.appendChild(tableData);
-            }
-        };
-    });
+                // APPEND ROWS TO BODY
+                tableBody.appendChild(tableRow);
 
-
-
-
-}
-makeGrid()
+                // CREATE TABLE CELLS
+                for (var col = 0; col < gridWidth; col++) {
+                    var tableData = document.createElement('TD');
+                    // APPEND TABLE CELL TO ROW
+                    tableRow.appendChild(tableData);
+                }
+            };
+        });
 
 
-// });
+
+    }
+    makeGrid()
+
+
+});
