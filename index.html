@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Pixel Art Maker!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
-    <!-- jQuery Offline  -->
-    <!-- TODO: Remove at the end of project development -->
-    <script src="./jquery-3.3.1.min.js"></script>
-    <!-- jQuery CDN --> 
-    <!-- TODO: Uncomment after project completion -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Fallback jQuery -->
+    <script>
+        window.jQuery || document.write('<script src="./jquery-3.3.1.min.js"><\/script>')
+    </script>
 </head>
+
 <body>
     <h1>Lab: Pixel Art Maker</h1>
 
-    <h2>Choose Grid Size</h2>
+    <h2>Choose Grid Size (Or Type in Values)</h2>
     <form id="sizePicker">
         Grid Height:
-        <input type="number" id="inputHeight" name="height" min="1" max = "50" value="1">
-        Grid Width:
-        <input type="number" id="inputWeight" name="width" min="1" max = "50" value="1">
+        <input type="number" id="inputHeight" name="height" min="1" max="50" value="0"> Grid Width:
+        <input type="number" id="inputWeight" name="width" min="1" max="50" value="0">
         <input type="submit" id="input">
     </form>
 
@@ -30,7 +31,8 @@
     <h2>Design Canvas</h2>
     <table id="pixelCanvas"></table>
 
-    
+
     <script src="designs.js"></script>
 </body>
+
 </html>
