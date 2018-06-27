@@ -18,8 +18,9 @@ $(function() {
             var gridWidth = $('#inputWeight').val();
 
             // CREATE TABLE BODY
+           
             var tableBody = document.createElement('TBODY');
-
+            
             // APPEND TABLE BODY TO TABLE ELEMENT
             table.appendChild(tableBody);
 
@@ -39,8 +40,18 @@ $(function() {
                     tableRow.appendChild(tableData);
                 }
             };
+            $('#inputHeight').on('change', function () {
+                $('#pixelCanvas').html('');
+            })
+            $('#inputWeight').on('change', function () {
+                $('#pixelCanvas').html('');
+            })
         });
 
+
+        // $('td').on('click', function() {
+        //     $(this).toggleClass('color', 'red');
+        //    });
 
 
     }
