@@ -11,16 +11,16 @@ $(function() {
             event.preventDefault();
 
             // SELECT COLOUR INPUT
-            var selectColor = $('#colorPicker').val();
+            
 
             // SELECT SIZE INPUT
-            var gridHeight = $('#inputHeight').val();
-            var gridWidth = $('#inputWeight').val();
+            let gridHeight = $('#inputHeight').val();
+            let gridWidth = $('#inputWeight').val();
 
             // CREATE TABLE BODY
-           
-            var tableBody = document.createElement('TBODY');
-            
+
+            let tableBody = document.createElement('TBODY');
+
             // APPEND TABLE BODY TO TABLE ELEMENT
             table.appendChild(tableBody);
 
@@ -28,34 +28,32 @@ $(function() {
             for (var row = 0; row < gridHeight; row++) {
 
                 // CREATE TABLE ROWS
-                var tableRow = document.createElement('TR');
+                let tableRow = document.createElement('TR');
 
                 // APPEND ROWS TO BODY
                 tableBody.appendChild(tableRow);
 
                 // CREATE TABLE CELLS
                 for (var col = 0; col < gridWidth; col++) {
-                    var tableData = document.createElement('TD');
+                    let tableData = document.createElement('TD');
                     // APPEND TABLE CELL TO ROW
                     tableRow.appendChild(tableData);
                 }
+
             };
-            $('#inputHeight').on('change', function () {
+            // CLEAR CANVAS ON CHANGE IN INPUT VALUES
+            $('#inputHeight').on('change', function() {
                 $('#pixelCanvas').html('');
             })
-            $('#inputWeight').on('change', function () {
+            $('#inputWeight').on('change', function() {
                 $('#pixelCanvas').html('');
             })
+            // CELL CLICKER
+            $('td').click(function() {
+                var selectedColor = $('#colorPicker').val();
+                $(this).css('background-color', selectedColor);
+            });
         });
-
-
-        // $('td').on('click', function() {
-        //     $(this).toggleClass('color', 'red');
-        //    });
-
-
     }
     makeGrid()
-
-
 });
