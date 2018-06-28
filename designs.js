@@ -2,40 +2,40 @@ $(function() {
     // Select color input
     // Select size input
     // When size is submitted by the user, call makeGrid()
-    
-    // get table element and store as variable
-    var table = document.getElementById('pixelCanvas');
+    // Your code goes here!
+    // Get table element and store as variable
+    const table = document.getElementById('pixelCanvas');
 
     function makeGrid() {
-        // Your code goes here!
+        // Event Listener for submit
         $('form').on('submit', function() {
             event.preventDefault();
             
-            // clear canvas first on submit
-            $('#pixelCanvas').html(''); 
+            // Clear canvas first on submit
+            $('#pixelCanvas').html('');
 
             // select size input
-            var gridHeight = $('#inputHeight').val();
-            var gridWidth = $('#inputWeight').val();
+            const gridHeight = $('#inputHeight').val();
+            const gridWidth = $('#inputWeight').val();
 
             // create table body
-            var tableBody = document.createElement('TBODY');
+            const tableBody = document.createElement('TBODY');
 
             // append table body to table element
             table.appendChild(tableBody);
 
             // for loop creates cells from variables inputHeight and inputWeight
-            for (var row = 0; row < gridHeight; row++) {
+            for (let row = 0; row < gridHeight; row++) {
 
                 // create table rows
-                var tableRow = document.createElement('TR');
+                const tableRow = document.createElement('TR');
 
                 // append rows to table body
                 tableBody.appendChild(tableRow);
 
                 // create table cells
-                for (var col = 0; col < gridWidth; col++) {
-                    var tableData = document.createElement('TD');
+                for (let col = 0; col < gridWidth; col++) {
+                    const tableData = document.createElement('TD');
                     // append table cells to row
                     tableRow.appendChild(tableData);
                 }
@@ -55,9 +55,7 @@ $(function() {
                 const selectedColor = $('#colorPicker').val();
                 $(this).css('background-color', selectedColor);
             });
-        });    
+        });
     };
     makeGrid()
-
-
 });
