@@ -2,58 +2,62 @@ $(function() {
     // Select color input
     // Select size input
     // When size is submitted by the user, call makeGrid()
+    
+    // get table element and store as variable
+    var table = document.getElementById('pixelCanvas');
 
     function makeGrid() {
         // Your code goes here!
-        // GET TABLE ELEMENT AND STORE AS VARIABLE
-        var table = document.getElementById('pixelCanvas');
         $('form').on('submit', function() {
             event.preventDefault();
-
-            // SELECT COLOUR INPUT
             
+            // clear canvas first on submit
+            $('#pixelCanvas').html(''); 
 
-            // SELECT SIZE INPUT
-            let gridHeight = $('#inputHeight').val();
-            let gridWidth = $('#inputWeight').val();
+            // select size input
+            var gridHeight = $('#inputHeight').val();
+            var gridWidth = $('#inputWeight').val();
 
-            // CREATE TABLE BODY
+            // create table body
+            var tableBody = document.createElement('TBODY');
 
-            let tableBody = document.createElement('TBODY');
-
-            // APPEND TABLE BODY TO TABLE ELEMENT
+            // append table body to table element
             table.appendChild(tableBody);
 
-            // FOR LOOP TO CREATE CELLS FROM inputHeight and inputWeight
+            // for loop creates cells from variables inputHeight and inputWeight
             for (var row = 0; row < gridHeight; row++) {
 
-                // CREATE TABLE ROWS
-                let tableRow = document.createElement('TR');
+                // create table rows
+                var tableRow = document.createElement('TR');
 
-                // APPEND ROWS TO BODY
+                // append rows to table body
                 tableBody.appendChild(tableRow);
 
-                // CREATE TABLE CELLS
+                // create table cells
                 for (var col = 0; col < gridWidth; col++) {
-                    let tableData = document.createElement('TD');
-                    // APPEND TABLE CELL TO ROW
+                    var tableData = document.createElement('TD');
+                    // append table cells to row
                     tableRow.appendChild(tableData);
                 }
+            }
 
-            };
-            // CLEAR CANVAS ON CHANGE IN INPUT VALUES
+            // this event listeners will clear canvas on change in input values
             $('#inputHeight').on('change', function() {
                 $('#pixelCanvas').html('');
             })
             $('#inputWeight').on('change', function() {
                 $('#pixelCanvas').html('');
             })
-            // CELL CLICKER
+
+            // event listener for cell clicking
             $('td').click(function() {
-                var selectedColor = $('#colorPicker').val();
+                // select colour input
+                const selectedColor = $('#colorPicker').val();
                 $(this).css('background-color', selectedColor);
             });
-        });
-    }
+        });    
+    };
     makeGrid()
+
+
 });
