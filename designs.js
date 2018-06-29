@@ -8,8 +8,7 @@ $(function() {
 
     function makeGrid() {
         // Event Listener for submit
-        $('form').on('submit', function() {
-            event.preventDefault();
+        $('form').on('submit', function(event) {
             
             // Clear canvas first on submit
             $('#pixelCanvas').html('');
@@ -55,6 +54,7 @@ $(function() {
                 const selectedColor = $('#colorPicker').val();
                 $(this).css('background-color', selectedColor);
             });
+            event.preventDefault();
         });
     };
     makeGrid()
