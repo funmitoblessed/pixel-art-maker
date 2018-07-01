@@ -21,11 +21,12 @@
     <h1>Lab: Pixel Art Maker</h1>
 
     <h2>Choose Grid Size (Or Type in Values)</h2>
-    <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="inputHeight" name="height" min="1" max="100" value="0"> Grid Width:
-        <input type="number" id="inputWeight" name="width" min="1" max="100" value="0">
-        <input type="submit" id="input">
+    <form class="form-inline" id="sizePicker">
+        <label for="inputHeight">Grid Height:</label>
+        <input type="number" class="form-control" id="inputHeight" name="height" min="1" max="200" value="0">
+        <label for="inputWeight">Grid Width:</label>
+        <input type="number" class="form-control" id="inputWeight" name="width" min="1" max="70" value="0">
+        <input type="submit" class="btn btn-default" id="input">
     </form>
 
     <h2>Pick A Color</h2>
